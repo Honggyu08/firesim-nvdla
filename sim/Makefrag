@@ -29,7 +29,7 @@ midas_cc = $(shell find $(simif_dir) -name "*.cc")
 
 nvdla_dir := $(firesim_base_dir)/../target-design/firechip/nvidia-dla-blocks
 include $(nvdla_dir)/vsrc.mk
-nvdla_vsrc_dir := $(nvdla_dir)/vsrc/large
+nvdla_vsrc_dir := $(nvdla_dir)/vsrc/small
 
 common_cxx_flags := $(TARGET_CXX_FLAGS) -Wno-unused-variable
 common_ld_flags := $(TARGET_LD_FLAGS) -lrt
@@ -122,7 +122,7 @@ build_dir      := $(fpga_work_dir)/build
 verif_dir      := $(fpga_work_dir)/verif
 fpga_v         := $(fpga_work_dir)/design/cl_firesim_generated.sv
 ila_work_dir   := $(fpga_work_dir)/design/ila_files/
-nvdla_work_dir := $(fpga_work_dir)/design/nvdla_large
+nvdla_work_dir := $(fpga_work_dir)/design/nvdla_small
 fpga_vh        := $(fpga_work_dir)/design/cl_firesim_generated_defines.vh
 repo_state     := $(fpga_work_dir)/design/repo_state
 
