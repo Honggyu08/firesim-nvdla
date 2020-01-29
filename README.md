@@ -17,7 +17,7 @@ FireSim-NVDLA is a fork of the [FireSim](https://github.com/firesim/firesim) FPG
 
 ## Using FireSim
 
-To work with FireSim-NVDLA, first, you need to learn how to use FireSim. We recommend following the steps in the [FireSim documentation (v1.5.0)](http://docs.fires.im/en/1.5.0) to set up the simulator and run a single-node simulation. Please make sure that you are following the right version of the documentation (not the latest version). The only difference in setup is you use the URL of this repository when cloning the repository in ["Setting up the FireSim Repo"](http://docs.fires.im/en/1.5.0/Initial-Setup/Setting-up-your-Manager-Instance.html#setting-up-the-firesim-repo):
+To work with FireSim-NVDLA, first, you need to learn how to use FireSim. We recommend following the steps in the [FireSim documentation (v1.6.0)](http://docs.fires.im/en/1.6.0) to set up the simulator and run a single-node simulation. Please make sure that you are following the right version of the documentation. The only difference in setup is you use the URL of this repository when cloning in [Setting up the FireSim Repo](http://docs.fires.im/en/1.6.0/Initial-Setup/Setting-up-your-Manager-Instance.html#setting-up-the-firesim-repo):
 
 ```
 git clone https://github.com/CSL-KU/firesim-nvdla
@@ -26,6 +26,8 @@ cd firesim-nvdla
 ```
 
 After successfully running a single-node simulation, come back to this guide and follow the rest of instructions.
+
+**Note:** Make sure that you are using `FPGA Developer AMI - 1.6.0`. Version 1.5.0 no longer works due to the issues related to Python.
 
 ## Running YOLOv3 on NVDLA
 In this part, we guide you through configuring FireSim to run [YOLOv3](https://pjreddie.com/darknet/yolo) object detection algorithm on NVDLA. YOLOv3 runs on a modified version of the [Darknet](https://github.com/CSL-KU/darknet-nvdla) neural network framework that supports NVDLA acceleration. First, download Darknet and rebuild the target software:
@@ -102,7 +104,7 @@ Darknet saves the image with bounding boxes around the detected objects in `dark
 </p>
 
 ## Building Your Own Hardware
-The pre-built target we provided above is for a quad-core processor with no network interface, a last-level cache with the maximum size of 4 MiB, and a DDR3 memory with FR-FCFS controller. It is simple and easy to add NVDLA to any other configuration and build your own FPGA image. First, read ["Building Your Own Hardware Designs (FireSim FPGA Images)"](http://docs.fires.im/en/1.5.0/Building-a-FireSim-AFI.html) to learn how to build a FireSim FPGA image and make sure you know the meaning and use of parameters in [`config_build_recipes.ini`](http://docs.fires.im/en/1.5.0/Advanced-Usage/Manager/Manager-Configuration-Files.html#config-build-recipes-ini).
+The pre-built target we provided above is for a quad-core processor with no network interface, a last-level cache with the maximum size of 4 MiB, and a DDR3 memory with FR-FCFS controller. It is simple and easy to add NVDLA to any other configuration and build your own FPGA image. First, read [Building Your Own Hardware Designs (FireSim FPGA Images)](http://docs.fires.im/en/1.6.0/Building-a-FireSim-AFI.html) to learn how to build a FireSim FPGA image and make sure you know the meaning and use of parameters in [`config_build_recipes.ini`](http://docs.fires.im/en/1.6.0/Advanced-Usage/Manager/Manager-Configuration-Files.html#config-build-recipes-ini).
 
 Once you know how to build a FireSim FPGA image, building your own custom configuration with NVDLA is easy. Simply, add a new build definition in `config_build_recipes.ini` and add `_WithNVDLALarge` to the end of `TARGET_CONFIG` parameter. For example, use the build definition below to build an image for a single-core processor with a network interface and a latency-bandwidth pipe memory model with the FPGA host frequency of 75MHz:
 
@@ -139,7 +141,7 @@ The test program configures NVDLA, triggers the process and then pools the NVDLA
 cycle1: 5969, cycle2: 10682, diff: 4713
 ```
 
-The simulator saves the .out file and the waveform in `generated-src/f1/$DESIGN-$TARGET_CONFIG-$PLATFORM_CONFIG`. For more information on using the RTL simulator, please refer to ["Debugging & Testing with RTL Simulation"](https://docs.fires.im/en/1.5.0/Advanced-Usage/Debugging/RTL-Simulation.html#debugging-testing-with-rtl-simulation).
+The simulator saves the .out file and the waveform in `generated-src/f1/$DESIGN-$TARGET_CONFIG-$PLATFORM_CONFIG`. For more information on using the RTL simulator, please refer to [Debugging & Testing with RTL Simulation](https://docs.fires.im/en/1.6.0/Advanced-Usage/Debugging/RTL-Simulation.html#debugging-testing-with-rtl-simulation).
 
 ## Questions and Reporting Bugs
 If you have a question about using FireSim-NVDLA or you want to report a bug, please file an issue on this repository.
