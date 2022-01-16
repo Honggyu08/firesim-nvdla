@@ -1,0 +1,4 @@
+This workload was generated using firesim-software. See the following config
+and workload directory for details:
+../../../sw/firesim-software/workloads/darknet-nvdla.json
+../../../sw/firesim-software/workloads/darknet-nvdla

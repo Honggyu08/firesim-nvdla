@@ -1,0 +1,8 @@
+{
+	"benchmark_name": "darknet-nvdla",
+	"common_simulation_outputs": [
+		"uartlog"
+	],
+	"common_bootbinary": "../../../sw/firesim-software/images/darknet-nvdla-bin",
+	"common_rootfs": "../../../sw/firesim-software/images/darknet-nvdla.img"
+}
